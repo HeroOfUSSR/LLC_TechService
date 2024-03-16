@@ -53,20 +53,26 @@ namespace LLC_TechService.Forms
 
                 Order newOrder = new Order
                 {
-                    EquipmentOrder = db.Equipment.Last().IdEquipment,
+                    EquipmentOrder = db.Equipment.OrderBy(x => x.IdEquipment).Last().IdEquipment,
                     DescOrder = textBoxDesc.Text,
-                    MalfunctionOrder = db.Malfunctions.Last().IdMalfunction,
+                    MalfunctionOrder = db.Malfunctions.OrderBy(x => x.IdMalfunction).Last().IdMalfunction,
                     ClientOrder = Login.currentUser.IdUser,
                     StatusOrder = 3,
                     PriorityOrder = 2,
                     DateOrder = DateTime.Now,
-                    MasterOrder = db.Users.FirstOrDefault(x => x.RoleUser == 2).IdUser,
+                    //MasterOrder = db.Users.FirstOrDefault(x => x.RoleUser == 2).IdUser,
                 };
 
-                MessageBox.Show($"Заказ №{db.Orders.Last().IdOrder} оформлен");
+                db.Orders.Add(newOrder);
+
+                db.SaveChanges();
+
+                MessageBox.Show($"Заказ №{db.Orders.OrderBy(x => x.IdOrder).Last().IdOrder} оформлен");
                 this.Close();
             }
         }
+
+      
 
         private void CreateOrder_Load(object sender, EventArgs e)
         {

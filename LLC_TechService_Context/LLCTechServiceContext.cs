@@ -45,7 +45,6 @@ namespace LLC_TechService_Context
                 entity.HasKey(e => e.IdEquipment);
 
                 entity.Property(e => e.IdEquipment)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Equipment");
 
                 entity.Property(e => e.NameEquipment)
@@ -85,7 +84,6 @@ namespace LLC_TechService_Context
                 entity.ToTable("Malfunction");
 
                 entity.Property(e => e.IdMalfunction)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Malfunction");
 
                 entity.Property(e => e.DescMalfunction)
@@ -104,7 +102,6 @@ namespace LLC_TechService_Context
                 entity.ToTable("Order");
 
                 entity.Property(e => e.IdOrder)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Order");
 
                 entity.Property(e => e.ClientOrder).HasColumnName("Client_Order");
@@ -170,7 +167,6 @@ namespace LLC_TechService_Context
                 entity.ToTable("Part");
 
                 entity.Property(e => e.IdPart)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Part");
 
                 entity.Property(e => e.AmountPart).HasColumnName("Amount_Part");
@@ -206,7 +202,6 @@ namespace LLC_TechService_Context
                 entity.ToTable("Report");
 
                 entity.Property(e => e.IdReport)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Report");
 
                 entity.Property(e => e.CostReport)
@@ -312,7 +307,6 @@ namespace LLC_TechService_Context
                 entity.ToTable("User");
 
                 entity.Property(e => e.IdUser)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_User");
 
                 entity.Property(e => e.LoginUser)

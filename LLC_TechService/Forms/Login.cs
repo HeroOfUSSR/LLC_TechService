@@ -33,6 +33,7 @@ namespace LLC_TechService.Forms
                 {
                     var orderForm = new Orders();
                     var clientForm = new ClientMenu();
+                    this.Hide();
 
                     switch (currentUser.RoleUser)
                     {

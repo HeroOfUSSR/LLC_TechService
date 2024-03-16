@@ -32,8 +32,8 @@
             labelUser = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             buttonCreate = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -45,7 +45,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(931, 102);
+            panel1.Size = new Size(934, 102);
             panel1.TabIndex = 0;
             // 
             // labelUser
@@ -54,9 +54,9 @@
             labelUser.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelUser.Location = new Point(12, 9);
             labelUser.Name = "labelUser";
-            labelUser.Size = new Size(70, 20);
+            labelUser.Size = new Size(123, 20);
             labelUser.TabIndex = 6;
-            labelUser.Text = "Клиент:";
+            labelUser.Text = "Пользователь:";
             // 
             // panel2
             // 
@@ -64,7 +64,7 @@
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 409);
             panel2.Name = "panel2";
-            panel2.Size = new Size(931, 41);
+            panel2.Size = new Size(934, 41);
             panel2.TabIndex = 1;
             // 
             // panel3
@@ -72,19 +72,10 @@
             panel3.BackColor = SystemColors.ControlLight;
             panel3.Controls.Add(buttonCreate);
             panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(731, 102);
+            panel3.Location = new Point(734, 102);
             panel3.Name = "panel3";
             panel3.Size = new Size(200, 307);
             panel3.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 102);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(731, 307);
-            flowLayoutPanel1.TabIndex = 3;
             // 
             // buttonCreate
             // 
@@ -98,6 +89,15 @@
             buttonCreate.Text = "Создать заказ";
             buttonCreate.UseVisualStyleBackColor = false;
             buttonCreate.Click += buttonCreate_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 102);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(734, 307);
+            flowLayoutPanel1.TabIndex = 3;
             // 
             // Orders
             // 

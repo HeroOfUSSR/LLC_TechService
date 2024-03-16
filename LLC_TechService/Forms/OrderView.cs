@@ -30,14 +30,18 @@ namespace LLC_TechService.Forms
                 labelID.Text = $"Заказ №{order.IdOrder}";
                 labelEquip.Text = $"{equipment.NameEquipment}";
                 labelClient.Text = $"Клиент: {client.SurnameUser} {client.NameUser} {client.PatronymicUser}";
-                labelMaster.Text = $"Мастер: {master.SurnameUser} {master.NameUser} {master.PatronymicUser}";
+                if (master != null) labelMaster.Text = $"Мастер: {master.SurnameUser} {master.NameUser} {master.PatronymicUser}";
+                    else labelMaster.Text = $"Мастер не назначен";
                 labelPriority.Text = $"Приоритет: {priority.NamePriority}";
                 labelStatus.Text = $"Статус: {status.NameStatus}";
 
-                if (Login.currentUser.RoleUser != 1)
+                if (Login.currentUser.RoleUser == 3)
                 {
                     buttonEdit.Visible = false;
+                    labelPriority.Visible = false;
                 }
+                
+               
             }
         }
     }

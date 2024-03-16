@@ -21,12 +21,14 @@ namespace LLC_TechService.Forms
 
         private void Orders_Load(object sender, EventArgs e)
         {
-            labelUser.Text = $"{Login.currentUser.SurnameUser} " +
-                    $"{Login.currentUser.NameUser} " +
-                    $"{Login.currentUser.PatronymicUser}";
-
+            
             using (var db = new LLCTechServiceContext())
             {
+                labelUser.Text = $"{Login.currentUser.SurnameUser} " +
+                    $"{Login.currentUser.NameUser} " +
+                    $"{Login.currentUser.PatronymicUser} | " +
+                    $"{db.Roles.FirstOrDefault(x => x.IdRole == Login.currentUser.RoleUser).TitleRole}";
+
                 var orders = db.Orders.ToList();
 
                 foreach (var order in orders)

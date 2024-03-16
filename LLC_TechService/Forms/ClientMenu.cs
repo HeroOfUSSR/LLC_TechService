@@ -20,6 +20,11 @@ namespace LLC_TechService.Forms
 
         private void ClientMenu_Load(object sender, EventArgs e)
         {
+            Init_Grid();
+        }
+
+        private void Init_Grid()
+        {
             using (var db = new LLCTechServiceContext())
             {
                 labelClient.Text = $"{Login.currentUser.SurnameUser} " +
@@ -47,6 +52,12 @@ namespace LLC_TechService.Forms
         {
             var create = new CreateOrder();
             create.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            Init_Grid();
         }
     }
 }

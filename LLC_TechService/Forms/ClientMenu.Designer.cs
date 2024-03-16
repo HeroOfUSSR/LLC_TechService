@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            buttonRefresh = new Button();
             buttonCreate = new Button();
             labelClient = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -38,6 +39,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(buttonRefresh);
             panel1.Controls.Add(buttonCreate);
             panel1.Controls.Add(labelClient);
             panel1.Dock = DockStyle.Top;
@@ -45,6 +47,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(734, 118);
             panel1.TabIndex = 0;
+            // 
+            // buttonRefresh
+            // 
+            buttonRefresh.BackColor = SystemColors.Control;
+            buttonRefresh.BackgroundImage = Properties.Resources._211882_refresh_icon;
+            buttonRefresh.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonRefresh.FlatStyle = FlatStyle.Flat;
+            buttonRefresh.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonRefresh.Location = new Point(687, 71);
+            buttonRefresh.Name = "buttonRefresh";
+            buttonRefresh.Size = new Size(35, 32);
+            buttonRefresh.TabIndex = 10;
+            buttonRefresh.UseVisualStyleBackColor = false;
+            buttonRefresh.Click += buttonRefresh_Click;
             // 
             // buttonCreate
             // 
@@ -71,6 +87,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 118);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -98,5 +115,6 @@
         private Label labelClient;
         private Button buttonCreate;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button buttonRefresh;
     }
 }
