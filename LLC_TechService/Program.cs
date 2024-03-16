@@ -1,3 +1,5 @@
+using LLC_TechService.Forms;
+
 namespace LLC_TechService
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace LLC_TechService
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Login());
         }
     }
 }
