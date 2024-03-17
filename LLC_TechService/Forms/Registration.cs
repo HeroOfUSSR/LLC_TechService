@@ -21,28 +21,35 @@ namespace LLC_TechService.Forms
 
         private void buttonReg_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.Text == textBoxRepeat.Text)
+            if (textBoxName.Text == "" || textBoxPatronimyc.Text == "" ||
+                textBoxSurname.Text == "" || textBoxLogin.Text == "" ||
+                textBoxPassword.Text == "" || textBoxRepeat.Text == "") MessageBox.Show("Все поля обязательны к заполнению");
+            else
             {
-                using (var db = new LLCTechServiceContext())
+                if (textBoxPassword.Text == textBoxRepeat.Text)
                 {
-                    User newUser = new User
+                    using (var db = new LLCTechServiceContext())
                     {
-                        NameUser = textBoxName.Text,
-                        SurnameUser = textBoxSurname.Text,
-                        PatronymicUser = textBoxPatronimyc.Text,
-                        LoginUser = textBoxLogin.Text,
-                        PasswordUser = textBoxPassword.Text,
-                        RoleUser = 3
-                    };
+                        User newUser = new User
+                        {
+                            NameUser = textBoxName.Text,
+                            SurnameUser = textBoxSurname.Text,
+                            PatronymicUser = textBoxPatronimyc.Text,
+                            LoginUser = textBoxLogin.Text,
+                            PasswordUser = textBoxPassword.Text,
+                            RoleUser = 3
+                        };
 
-                    db.Users.Add(newUser);
-                    db.SaveChanges();
+                        db.Users.Add(newUser);
+                        db.SaveChanges();
 
-                    MessageBox.Show("Аккаунт успешно создан");
-                    this.Close();
+                        MessageBox.Show("Аккаунт успешно создан");
+                        this.Close();
+                    }
                 }
+                else MessageBox.Show("Пароли не совпадают");
             }
-            else MessageBox.Show("Пароли не совпадают");
+            
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

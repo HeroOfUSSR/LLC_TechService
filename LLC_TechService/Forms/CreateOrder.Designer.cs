@@ -175,7 +175,10 @@
             Controls.Add(labelEquip);
             Controls.Add(textBoxEquip);
             Controls.Add(buttonCreate);
+            MaximumSize = new Size(544, 539);
+            MinimumSize = new Size(544, 539);
             Name = "CreateOrder";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Оформление заказа";
             Load += CreateOrder_Load;
             ResumeLayout(false);

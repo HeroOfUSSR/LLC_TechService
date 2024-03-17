@@ -75,38 +75,45 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.ControlLightLight;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Lucida Sans Unicode", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(49, 252);
+            button1.Location = new Point(49, 222);
             button1.Name = "button1";
             button1.Size = new Size(348, 34);
             button1.TabIndex = 4;
             button1.Text = "Войти";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.ControlLightLight;
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(49, 292);
+            button2.Location = new Point(49, 262);
             button2.Name = "button2";
             button2.Size = new Size(348, 34);
             button2.TabIndex = 5;
             button2.Text = "Зарегистрироваться";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(440, 373);
+            ClientSize = new Size(440, 328);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(passwordtextBox);
             Controls.Add(label1);
             Controls.Add(logintextBox);
+            MaximumSize = new Size(456, 367);
+            MinimumSize = new Size(456, 367);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Авторизация";
             ResumeLayout(false);
             PerformLayout();

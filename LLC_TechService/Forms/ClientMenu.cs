@@ -40,8 +40,9 @@ namespace LLC_TechService.Forms
                     var equipment = db.Equipment.FirstOrDefault(x => x.IdEquipment == order.EquipmentOrder);
                     var client = db.Users.FirstOrDefault(x => x.IdUser == order.ClientOrder);
                     var master = db.Users.FirstOrDefault(x => x.IdUser == order.MasterOrder);
+                    var malfunction = db.Malfunctions.FirstOrDefault(x => x.IdMalfunction == order.MalfunctionOrder);
 
-                    var orderView = new OrderView(order, status, priority, equipment, client, master);
+                    var orderView = new OrderView(order, status, priority, equipment, client, master, malfunction);
 
                     orderView.Parent = flowLayoutPanel1;
                 }
@@ -58,6 +59,13 @@ namespace LLC_TechService.Forms
         {
             flowLayoutPanel1.Controls.Clear();
             Init_Grid();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            var login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

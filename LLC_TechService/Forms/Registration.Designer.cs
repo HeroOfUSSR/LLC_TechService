@@ -46,13 +46,15 @@
             // 
             // buttonReg
             // 
+            buttonReg.BackColor = SystemColors.ControlLightLight;
+            buttonReg.FlatStyle = FlatStyle.Flat;
             buttonReg.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonReg.Location = new Point(76, 384);
             buttonReg.Name = "buttonReg";
             buttonReg.Size = new Size(348, 34);
             buttonReg.TabIndex = 10;
             buttonReg.Text = "Зарегистрироваться";
-            buttonReg.UseVisualStyleBackColor = true;
+            buttonReg.UseVisualStyleBackColor = false;
             buttonReg.Click += buttonReg_Click;
             // 
             // label2
@@ -113,13 +115,15 @@
             // 
             // buttonCancel
             // 
+            buttonCancel.BackColor = SystemColors.ControlLightLight;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
             buttonCancel.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonCancel.Location = new Point(76, 424);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(348, 34);
             buttonCancel.TabIndex = 13;
             buttonCancel.Text = "Отмена";
-            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.UseVisualStyleBackColor = false;
             buttonCancel.Click += buttonCancel_Click;
             // 
             // label4
@@ -195,7 +199,10 @@
             Controls.Add(textBoxPassword);
             Controls.Add(label1);
             Controls.Add(textBoxLogin);
+            MaximumSize = new Size(520, 518);
+            MinimumSize = new Size(520, 518);
             Name = "Registration";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Регистрация";
             ResumeLayout(false);
             PerformLayout();

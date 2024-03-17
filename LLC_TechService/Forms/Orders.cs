@@ -21,7 +21,11 @@ namespace LLC_TechService.Forms
 
         private void Orders_Load(object sender, EventArgs e)
         {
-            
+            Init_Grid();
+        }
+
+        private void Init_Grid()
+        {
             using (var db = new LLCTechServiceContext())
             {
                 labelUser.Text = $"{Login.currentUser.SurnameUser} " +
@@ -38,8 +42,9 @@ namespace LLC_TechService.Forms
                     var equipment = db.Equipment.FirstOrDefault(x => x.IdEquipment == order.EquipmentOrder);
                     var client = db.Users.FirstOrDefault(x => x.IdUser == order.ClientOrder);
                     var master = db.Users.FirstOrDefault(x => x.IdUser == order.MasterOrder);
+                    var malfunction = db.Malfunctions.FirstOrDefault(x => x.IdMalfunction == order.MalfunctionOrder);
 
-                    var orderView = new OrderView(order, status, priority, equipment, client, master);
+                    var orderView = new OrderView(order, status, priority, equipment, client, master, malfunction);
 
                     orderView.Parent = flowLayoutPanel1;
 
@@ -47,10 +52,23 @@ namespace LLC_TechService.Forms
             }
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+            private void buttonCreate_Click(object sender, EventArgs e)
         {
             var create = new CreateOrder();
             create.Show();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            var login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            Init_Grid();
         }
     }
 }
