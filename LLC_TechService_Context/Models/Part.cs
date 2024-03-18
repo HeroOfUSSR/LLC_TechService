@@ -7,7 +7,6 @@ namespace LLC_TechService_Context.Models
     {
         public Part()
         {
-            Reports = new HashSet<Report>();
             UsedParts = new HashSet<UsedPart>();
         }
 
@@ -16,7 +15,6 @@ namespace LLC_TechService_Context.Models
         public string? DescPart { get; set; }
         public int AmountPart { get; set; }
 
-        public virtual ICollection<Report> Reports { get; set; }
         public virtual ICollection<UsedPart> UsedParts { get; set; }
     }
 }

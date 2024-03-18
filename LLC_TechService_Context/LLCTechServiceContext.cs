@@ -34,7 +34,7 @@ namespace LLC_TechService_Context
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-DDO84UQ; Database=LLC TechService; Trusted_Connection=true");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-DDO84UQ; Initial catalog=LLC TechService; Trusted_Connection=true");
             }
         }
 
@@ -44,8 +44,7 @@ namespace LLC_TechService_Context
             {
                 entity.HasKey(e => e.IdEquipment);
 
-                entity.Property(e => e.IdEquipment)
-                    .HasColumnName("ID_Equipment");
+                entity.Property(e => e.IdEquipment).HasColumnName("ID_Equipment");
 
                 entity.Property(e => e.NameEquipment)
                     .HasMaxLength(50)
@@ -83,8 +82,7 @@ namespace LLC_TechService_Context
 
                 entity.ToTable("Malfunction");
 
-                entity.Property(e => e.IdMalfunction)
-                    .HasColumnName("ID_Malfunction");
+                entity.Property(e => e.IdMalfunction).HasColumnName("ID_Malfunction");
 
                 entity.Property(e => e.DescMalfunction)
                     .HasMaxLength(50)
@@ -101,8 +99,7 @@ namespace LLC_TechService_Context
 
                 entity.ToTable("Order");
 
-                entity.Property(e => e.IdOrder)
-                    .HasColumnName("ID_Order");
+                entity.Property(e => e.IdOrder).HasColumnName("ID_Order");
 
                 entity.Property(e => e.ClientOrder).HasColumnName("Client_Order");
 
@@ -166,8 +163,7 @@ namespace LLC_TechService_Context
 
                 entity.ToTable("Part");
 
-                entity.Property(e => e.IdPart)
-                    .HasColumnName("ID_Part");
+                entity.Property(e => e.IdPart).HasColumnName("ID_Part");
 
                 entity.Property(e => e.AmountPart).HasColumnName("Amount_Part");
 
@@ -201,8 +197,7 @@ namespace LLC_TechService_Context
 
                 entity.ToTable("Report");
 
-                entity.Property(e => e.IdReport)
-                    .HasColumnName("ID_Report");
+                entity.Property(e => e.IdReport).HasColumnName("ID_Report");
 
                 entity.Property(e => e.CostReport)
                     .HasColumnType("money")
@@ -243,12 +238,6 @@ namespace LLC_TechService_Context
                     .HasForeignKey(d => d.OrderReport)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Report_Order");
-
-                entity.HasOne(d => d.PartReportNavigation)
-                    .WithMany(p => p.Reports)
-                    .HasForeignKey(d => d.PartReport)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Report_Part");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -285,19 +274,24 @@ namespace LLC_TechService_Context
             {
                 entity.HasKey(e => e.IdUsedParts);
 
-                entity.Property(e => e.IdUsedParts)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID_UsedParts");
+                entity.Property(e => e.IdUsedParts).HasColumnName("ID_UsedParts");
 
                 entity.Property(e => e.AmountUsedParts).HasColumnName("Amount_UsedParts");
 
                 entity.Property(e => e.PartsId).HasColumnName("Parts_ID");
 
+                entity.Property(e => e.ReportUsedParts).HasColumnName("Report_UsedParts");
+
                 entity.HasOne(d => d.Parts)
                     .WithMany(p => p.UsedParts)
                     .HasForeignKey(d => d.PartsId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_UsedParts_Part");
+                    .HasConstraintName("FK_UsedParts_Part1");
+
+                entity.HasOne(d => d.ReportUsedPartsNavigation)
+                    .WithMany(p => p.UsedParts)
+                    .HasForeignKey(d => d.ReportUsedParts)
+                    .HasConstraintName("FK_UsedParts_Report");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -306,8 +300,7 @@ namespace LLC_TechService_Context
 
                 entity.ToTable("User");
 
-                entity.Property(e => e.IdUser)
-                    .HasColumnName("ID_User");
+                entity.Property(e => e.IdUser).HasColumnName("ID_User");
 
                 entity.Property(e => e.LoginUser)
                     .HasMaxLength(50)

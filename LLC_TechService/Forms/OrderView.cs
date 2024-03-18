@@ -62,6 +62,8 @@ namespace LLC_TechService.Forms
                 else labelMaster.Text = $"Мастер не назначен";
                 labelPriority.Text = $"Приоритет: {priority.NamePriority}";
                 labelStatus.Text = $"Статус: {status.NameStatus}";
+                if (order.DescOrder == null || order.DescOrder == "") labelDesc.Visible = false;
+                labelDesc.Text = order.DescOrder;
                 labelProblem.Text = malfunction.NameMalfunction;
 
                 if (Login.currentUser.RoleUser == 3)

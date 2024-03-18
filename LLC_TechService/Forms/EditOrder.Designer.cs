@@ -78,7 +78,7 @@
             buttonCancel.TabIndex = 39;
             buttonCancel.Text = "Отмена";
             buttonCancel.UseVisualStyleBackColor = true;
-            buttonCancel.Click += buttonCancel_Click;
+            buttonCancel.Click += buttonCancel_Click_1;
             // 
             // label6
             // 
@@ -145,6 +145,7 @@
             buttonEdit.TabIndex = 32;
             buttonEdit.Text = "Изменить заказ";
             buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // comboType
             // 
@@ -211,6 +212,7 @@
             comboMaster.Name = "comboMaster";
             comboMaster.Size = new Size(246, 28);
             comboMaster.TabIndex = 49;
+            comboMaster.Format += comboMaster_Format;
             // 
             // label5
             // 
@@ -230,6 +232,7 @@
             comboClient.Name = "comboClient";
             comboClient.Size = new Size(246, 28);
             comboClient.TabIndex = 51;
+            comboClient.Format += comboClient_Format;
             // 
             // label7
             // 

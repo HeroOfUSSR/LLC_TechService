@@ -8,7 +8,9 @@ namespace LLC_TechService_Context.Models
         public int IdUsedParts { get; set; }
         public int AmountUsedParts { get; set; }
         public int PartsId { get; set; }
+        public int? ReportUsedParts { get; set; }
 
         public virtual Part Parts { get; set; } = null!;
+        public virtual Report? ReportUsedPartsNavigation { get; set; }
     }
 }

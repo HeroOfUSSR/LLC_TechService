@@ -5,6 +5,11 @@ namespace LLC_TechService_Context.Models
 {
     public partial class Report
     {
+        public Report()
+        {
+            UsedParts = new HashSet<UsedPart>();
+        }
+
         public int IdReport { get; set; }
         public int OrderReport { get; set; }
         public DateTime DateReport { get; set; }
@@ -18,6 +23,6 @@ namespace LLC_TechService_Context.Models
         public virtual Malfunction MalfunctionReportNavigation { get; set; } = null!;
         public virtual User MasterReportNavigation { get; set; } = null!;
         public virtual Order OrderReportNavigation { get; set; } = null!;
-        public virtual Part PartReportNavigation { get; set; } = null!;
+        public virtual ICollection<UsedPart> UsedParts { get; set; }
     }
 }

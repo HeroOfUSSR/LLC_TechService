@@ -49,7 +49,6 @@ namespace LLC_TechService.Forms
                 }
                 else MessageBox.Show("Пароли не совпадают");
             }
-            
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

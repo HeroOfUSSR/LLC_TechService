@@ -1,4 +1,5 @@
 ﻿using LLC_TechService_Context;
+using LLC_TechService_Context.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,12 @@ namespace LLC_TechService.Forms
         {
             InitializeComponent();
         }
-
+        
         private void Orders_Load(object sender, EventArgs e)
         {
             Init_Grid();
         }
-
+        
         private void Init_Grid()
         {
             using (var db = new LLCTechServiceContext())
@@ -33,7 +34,14 @@ namespace LLC_TechService.Forms
                     $"{Login.currentUser.PatronymicUser} | " +
                     $"{db.Roles.FirstOrDefault(x => x.IdRole == Login.currentUser.RoleUser).TitleRole}";
 
-                var orders = db.Orders.ToList();
+                List<Order> orders;
+
+                if (Login.currentUser.RoleUser == 3) orders = db.Orders
+                        .OrderBy(x => x.PriorityOrder)
+                        .ThenByDescending(x => x.StatusOrder).ToList();
+                else orders = db.Orders.OrderBy(x => x.PriorityOrder)
+                        .ThenByDescending(x => x.StatusOrder)
+                        .Where(x => x.MasterOrder == Login.currentUser.IdUser).ToList();
 
                 foreach (var order in orders)
                 {

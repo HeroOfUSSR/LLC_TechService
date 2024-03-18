@@ -35,6 +35,7 @@
             labelStatus = new Label();
             labelPriority = new Label();
             buttonEdit = new Button();
+            labelDesc = new Label();
             labelProblem = new Label();
             SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             labelClient.AutoSize = true;
             labelClient.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelClient.Location = new Point(22, 131);
+            labelClient.Location = new Point(22, 167);
             labelClient.Name = "labelClient";
             labelClient.Size = new Size(70, 20);
             labelClient.TabIndex = 4;
@@ -72,7 +73,7 @@
             // 
             labelMaster.AutoSize = true;
             labelMaster.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMaster.Location = new Point(22, 167);
+            labelMaster.Location = new Point(22, 203);
             labelMaster.Name = "labelMaster";
             labelMaster.Size = new Size(73, 20);
             labelMaster.TabIndex = 5;
@@ -109,15 +110,25 @@
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
+            // labelDesc
+            // 
+            labelDesc.AutoSize = true;
+            labelDesc.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelDesc.ForeColor = Color.FromArgb(64, 64, 64);
+            labelDesc.Location = new Point(22, 110);
+            labelDesc.Name = "labelDesc";
+            labelDesc.Size = new Size(88, 20);
+            labelDesc.TabIndex = 9;
+            labelDesc.Text = "Описание";
+            // 
             // labelProblem
             // 
             labelProblem.AutoSize = true;
             labelProblem.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelProblem.ForeColor = Color.FromArgb(64, 64, 64);
-            labelProblem.Location = new Point(22, 85);
+            labelProblem.Location = new Point(22, 90);
             labelProblem.Name = "labelProblem";
             labelProblem.Size = new Size(80, 20);
-            labelProblem.TabIndex = 9;
+            labelProblem.TabIndex = 10;
             labelProblem.Text = "Поломка";
             // 
             // OrderView
@@ -126,6 +137,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(labelProblem);
+            Controls.Add(labelDesc);
             Controls.Add(buttonEdit);
             Controls.Add(labelPriority);
             Controls.Add(labelStatus);
@@ -134,7 +146,7 @@
             Controls.Add(labelEquip);
             Controls.Add(labelID);
             Name = "OrderView";
-            Size = new Size(748, 206);
+            Size = new Size(748, 241);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -148,6 +160,7 @@
         private Label labelStatus;
         private Label labelPriority;
         private Button buttonEdit;
+        private Label labelDesc;
         private Label labelProblem;
     }
 }
