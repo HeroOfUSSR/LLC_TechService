@@ -54,7 +54,7 @@ namespace LLC_TechService.Forms
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (textBoxProblem.Text != "" || textBoxMoney.Text != "")
+            if (textBoxProblem.Text == "" || textBoxMoney.Text == "")
             {
                 using (var db = new LLCTechServiceContext())
                 {
@@ -109,7 +109,12 @@ namespace LLC_TechService.Forms
                 }
             }
             else MessageBox.Show("Введите данные во все поля со звёздочкой");
-            
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

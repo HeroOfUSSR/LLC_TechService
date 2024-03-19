@@ -79,6 +79,7 @@ namespace LLC_TechService.Forms
                 if (Login.currentUser.RoleUser == 3)
                 {
                     buttonEdit.Visible = false;
+                    buttonDone.Visible = false;
                     labelPriority.Visible = false;
                 }
             }

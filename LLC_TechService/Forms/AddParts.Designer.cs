@@ -67,6 +67,7 @@
             buttonCancel.TabIndex = 29;
             buttonCancel.Text = "Отмена";
             buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // buttonCreate
             // 
@@ -82,7 +83,9 @@
             // numericUpDown
             // 
             numericUpDown.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            numericUpDown.Increment = new decimal(new int[] { 0, 0, 0, 0 });
             numericUpDown.Location = new Point(223, 95);
+            numericUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDown.Name = "numericUpDown";
             numericUpDown.Size = new Size(140, 32);
             numericUpDown.TabIndex = 38;

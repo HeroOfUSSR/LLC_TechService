@@ -59,6 +59,7 @@
             // 
             numericUpDown.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             numericUpDown.Location = new Point(268, 13);
+            numericUpDown.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDown.Name = "numericUpDown";
             numericUpDown.Size = new Size(120, 32);
             numericUpDown.TabIndex = 37;

@@ -62,6 +62,12 @@ namespace LLC_TechService.Forms
                 this._equip = equipment;
                 this._malfunction = malfunction;
             }
+            if (Login.currentUser.RoleUser != 1)
+            {
+                dateTimePicker.Enabled = false;
+                comboMaster.Enabled = false;
+
+            }
         }
 
 

@@ -34,8 +34,10 @@ namespace LLC_TechService.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBoxPart.Visible = !newPart;
-            comboPart.Visible = !oldPart;
+            newPart = !newPart;
+            oldPart = !oldPart;
+            textBoxPart.Visible = newPart;
+            comboPart.Visible = oldPart;
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -62,12 +64,19 @@ namespace LLC_TechService.Forms
                     db.SaveChanges();
                 }
 
+                MessageBox.Show("Товар заказан");
+                this.Close();
             }
         }
 
         private void comboPart_SelectedIndexChanged(object sender, EventArgs e)
         {
             numericUpDown.Value = ((Part)comboPart.SelectedItem).AmountPart;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
