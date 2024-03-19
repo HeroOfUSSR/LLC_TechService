@@ -15,9 +15,16 @@ namespace LLC_TechService.Forms
 {
     public partial class Orders : Form
     {
+        private decimal sum;
         public Orders()
         {
             InitializeComponent();
+
+            comboStatus.DisplayMember = nameof(Status.NameStatus);
+            comboStatus.ValueMember = nameof(Status.IdStatus);
+            comboPriority.DisplayMember = nameof(Priority.NamePriority);
+            comboPriority.ValueMember = nameof(Priority.IdPriority);
+
         }
 
         private void Orders_Load(object sender, EventArgs e)
@@ -34,13 +41,33 @@ namespace LLC_TechService.Forms
                     $"{Login.currentUser.PatronymicUser} | " +
                     $"{db.Roles.FirstOrDefault(x => x.IdRole == Login.currentUser.RoleUser).TitleRole}";
 
+                comboStatus.Items.AddRange(db.Statuses
+                    .OrderBy(x => x.IdStatus).ToArray());
+                comboPriority.Items.AddRange(db.Priorities
+                    .OrderBy(x => x.IdPriority).ToArray());
+
+                comboStatus.Items.Insert(0, new Status()
+                {
+                    IdStatus = 0,
+                    NameStatus = "Все статусы"
+                });
+                comboPriority.Items.Insert(0, new Priority()
+                {
+                    IdPriority = 0,
+                    NamePriority = "Все приоритеты"
+                });
+
+                comboStatus.SelectedIndex = 0;
+                comboPriority.SelectedIndex = 0;
+
                 List<Order> orders;
 
                 if (Login.currentUser.RoleUser == 1) orders = db.Orders
-                        .OrderBy(x => x.PriorityOrder)
-                        .ThenByDescending(x => x.StatusOrder).ToList();
-                else orders = db.Orders.OrderBy(x => x.PriorityOrder)
-                        .ThenByDescending(x => x.StatusOrder)
+                        .OrderByDescending(x => x.StatusOrder)
+                        .ThenBy(x => x.PriorityOrder).ToList();
+                else orders = db.Orders
+                        .OrderByDescending(x => x.StatusOrder)
+                        .ThenBy(x => x.PriorityOrder)
                         .Where(x => x.MasterOrder == Login.currentUser.IdUser).ToList();
 
                 foreach (var order in orders)
@@ -57,7 +84,24 @@ namespace LLC_TechService.Forms
                     orderView.Parent = flowLayoutPanel1;
 
                 }
+                CountSpends();
             }
+        }
+
+        private void CountSpends()
+        {
+            using (var db = new LLCTechServiceContext())
+            {
+                if (Login.currentUser.RoleUser == 1)
+                    sum = db.Reports.Sum(x => x.CostReport);
+                else
+                    sum = db.Reports
+                        .Where(x => x.MasterReport == Login.currentUser.IdUser)
+                        .Sum(x => x.CostReport);
+
+                labelSpends.Text = $"Общие траты: {sum} руб";
+            }
+
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -77,6 +121,7 @@ namespace LLC_TechService.Forms
         {
             flowLayoutPanel1.Controls.Clear();
             Init_Grid();
+            Sort();
         }
 
         private void buttonParts_Click(object sender, EventArgs e)
@@ -84,5 +129,56 @@ namespace LLC_TechService.Forms
             var addPart = new AddParts();
             addPart.ShowDialog();
         }
+
+        private void Sort()
+        {
+            if (comboPriority.SelectedItem == null || comboStatus.SelectedItem == null) return;
+
+            var selectedPrio = ((Priority)comboPriority.SelectedItem).IdPriority;
+            var selectedStatus = ((Status)comboStatus.SelectedItem).IdStatus;
+
+            foreach (var item in flowLayoutPanel1.Controls)
+            {
+                var visible = true;
+                if (item is OrderView orderView)
+                {
+                    if (selectedPrio != 0 && !(orderView.Order.PriorityOrder == selectedPrio))
+                    {
+                        visible = false;
+                    }
+
+                    if (selectedStatus != 0 && !(orderView.Order.StatusOrder == selectedStatus))
+                    {
+                        visible = false;
+                    }
+
+                    if (!(string.IsNullOrEmpty(textBoxSearch.Text) ||
+                        orderView.Order.IdOrder.CompareTo(Convert.ToInt32(textBoxSearch.Text)) == 0))
+                    {
+                        visible = false;
+                    }
+
+                    orderView.Visible = visible;
+                }
+            }
+
+        }
+
+        private void comboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sort();
+        }
+
+        private void comboPriority_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Sort();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            Sort();
+        }
+
+  
     }
 }

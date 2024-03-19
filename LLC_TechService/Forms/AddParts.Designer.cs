@@ -132,7 +132,7 @@
             Controls.Add(labelEquip);
             Controls.Add(textBoxPart);
             Name = "AddParts";
-            Text = "AddParts";
+            Text = "Заказ деталей";
             ((System.ComponentModel.ISupportInitialize)numericUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();

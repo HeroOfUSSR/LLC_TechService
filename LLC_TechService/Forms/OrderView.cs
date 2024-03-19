@@ -33,25 +33,35 @@ namespace LLC_TechService.Forms
         {
             InitializeComponent();
 
-            this.viewOrder = order;
-            this.viewClient = client;
-            this.viewMaster = master;
-            this.viewEquip = equipment;
-            this.viewMalfunction = malfunction;
-            this.viewStatus = status;
-            this.viewPriority = priority;
+            viewOrder = order;
+            viewClient = client;
+            viewMaster = master;
+            viewEquip = equipment;
+            viewMalfunction = malfunction;
+            viewStatus = status;
+            viewPriority = priority;
 
             Init_View(order, status, priority, equipment, client, master, malfunction);
         }
 
-
+        public Order Order => viewOrder;
+        public Equipment Equip => viewEquip;
         private void Init_View(Order order, Status status,
             Priority priority, Equipment equipment,
             User client, User master, Malfunction malfunction)
         {
             using (var db = new LLCTechServiceContext())
             {
-                labelID.Text = $"Заказ №{order.IdOrder}";
+                if (order.DoneDateOrder != null)
+                {
+                    if (DateTime.Compare((DateTime)order.DoneDateOrder, DateTime.Now) < 0)
+                    {
+                        labelID.Text = $"Заказ №{order.IdOrder}  | Просрочен";
+                        labelID.ForeColor = Color.Red;
+                    }    
+                    else labelID.Text = $"Заказ №{order.IdOrder}";
+                }
+                else labelID.Text = $"Заказ №{order.IdOrder}";
                 labelEquip.Text = $"{equipment.NameEquipment}";
                 labelClient.Text = $"Клиент: {client.SurnameUser} " +
                     $"{client.NameUser} " +
