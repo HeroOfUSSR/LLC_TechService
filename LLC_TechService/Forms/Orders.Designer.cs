@@ -34,6 +34,7 @@
             labelUser = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            buttonParts = new Button();
             buttonCreate = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
@@ -102,12 +103,26 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlLight;
+            panel3.Controls.Add(buttonParts);
             panel3.Controls.Add(buttonCreate);
             panel3.Dock = DockStyle.Right;
             panel3.Location = new Point(774, 102);
             panel3.Name = "panel3";
             panel3.Size = new Size(200, 318);
             panel3.TabIndex = 2;
+            // 
+            // buttonParts
+            // 
+            buttonParts.BackColor = SystemColors.Control;
+            buttonParts.FlatStyle = FlatStyle.Flat;
+            buttonParts.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonParts.Location = new Point(6, 44);
+            buttonParts.Name = "buttonParts";
+            buttonParts.Size = new Size(185, 32);
+            buttonParts.TabIndex = 11;
+            buttonParts.Text = "Заказ запчастей";
+            buttonParts.UseVisualStyleBackColor = false;
+            buttonParts.Click += buttonParts_Click;
             // 
             // buttonCreate
             // 
@@ -162,5 +177,6 @@
         private Button buttonCreate;
         private Button buttonLogout;
         private Button buttonRefresh;
+        private Button buttonParts;
     }
 }

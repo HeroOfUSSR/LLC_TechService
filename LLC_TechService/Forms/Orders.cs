@@ -19,12 +19,12 @@ namespace LLC_TechService.Forms
         {
             InitializeComponent();
         }
-        
+
         private void Orders_Load(object sender, EventArgs e)
         {
             Init_Grid();
         }
-        
+
         private void Init_Grid()
         {
             using (var db = new LLCTechServiceContext())
@@ -36,7 +36,7 @@ namespace LLC_TechService.Forms
 
                 List<Order> orders;
 
-                if (Login.currentUser.RoleUser == 3) orders = db.Orders
+                if (Login.currentUser.RoleUser == 1) orders = db.Orders
                         .OrderBy(x => x.PriorityOrder)
                         .ThenByDescending(x => x.StatusOrder).ToList();
                 else orders = db.Orders.OrderBy(x => x.PriorityOrder)
@@ -60,7 +60,7 @@ namespace LLC_TechService.Forms
             }
         }
 
-            private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonCreate_Click(object sender, EventArgs e)
         {
             var create = new CreateOrder();
             create.Show();
@@ -77,6 +77,12 @@ namespace LLC_TechService.Forms
         {
             flowLayoutPanel1.Controls.Clear();
             Init_Grid();
+        }
+
+        private void buttonParts_Click(object sender, EventArgs e)
+        {
+            var addPart = new AddParts();
+            addPart.ShowDialog();
         }
     }
 }

@@ -133,10 +133,11 @@
             // 
             // comboType
             // 
+            comboType.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboType.FormattingEnabled = true;
             comboType.Location = new Point(205, 167);
             comboType.Name = "comboType";
-            comboType.Size = new Size(246, 23);
+            comboType.Size = new Size(246, 28);
             comboType.TabIndex = 29;
             // 
             // label2

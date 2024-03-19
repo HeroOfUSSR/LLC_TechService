@@ -48,13 +48,15 @@
             label5 = new Label();
             comboClient = new ComboBox();
             label7 = new Label();
+            label8 = new Label();
+            dateTimePicker = new DateTimePicker();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(60, 91);
+            label2.Location = new Point(60, 90);
             label2.Name = "label2";
             label2.Size = new Size(97, 40);
             label2.TabIndex = 41;
@@ -63,7 +65,7 @@
             // textBoxSerial
             // 
             textBoxSerial.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxSerial.Location = new Point(204, 91);
+            textBoxSerial.Location = new Point(204, 90);
             textBoxSerial.Multiline = true;
             textBoxSerial.Name = "textBoxSerial";
             textBoxSerial.Size = new Size(246, 40);
@@ -72,7 +74,7 @@
             // buttonCancel
             // 
             buttonCancel.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCancel.Location = new Point(88, 593);
+            buttonCancel.Location = new Point(87, 627);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(348, 34);
             buttonCancel.TabIndex = 39;
@@ -84,7 +86,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(60, 434);
+            label6.Location = new Point(60, 341);
             label6.Name = "label6";
             label6.Size = new Size(119, 40);
             label6.TabIndex = 38;
@@ -93,7 +95,7 @@
             // textBoxDesc
             // 
             textBoxDesc.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxDesc.Location = new Point(204, 431);
+            textBoxDesc.Location = new Point(204, 341);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
             textBoxDesc.Size = new Size(246, 93);
@@ -103,7 +105,7 @@
             // 
             labelMalfunction.AutoSize = true;
             labelMalfunction.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMalfunction.Location = new Point(60, 194);
+            labelMalfunction.Location = new Point(60, 150);
             labelMalfunction.Name = "labelMalfunction";
             labelMalfunction.Size = new Size(138, 20);
             labelMalfunction.TabIndex = 36;
@@ -112,7 +114,7 @@
             // textBoxProblem
             // 
             textBoxProblem.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxProblem.Location = new Point(204, 191);
+            textBoxProblem.Location = new Point(204, 147);
             textBoxProblem.Name = "textBoxProblem";
             textBoxProblem.Size = new Size(246, 32);
             textBoxProblem.TabIndex = 35;
@@ -139,7 +141,7 @@
             // buttonEdit
             // 
             buttonEdit.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonEdit.Location = new Point(88, 553);
+            buttonEdit.Location = new Point(87, 587);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(348, 34);
             buttonEdit.TabIndex = 32;
@@ -151,7 +153,7 @@
             // 
             comboType.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboType.FormattingEnabled = true;
-            comboType.Location = new Point(204, 148);
+            comboType.Location = new Point(204, 194);
             comboType.Name = "comboType";
             comboType.Size = new Size(246, 28);
             comboType.TabIndex = 43;
@@ -160,7 +162,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(60, 151);
+            label1.Location = new Point(60, 194);
             label1.Name = "label1";
             label1.Size = new Size(119, 20);
             label1.TabIndex = 42;
@@ -170,7 +172,7 @@
             // 
             comboStatus.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboStatus.FormattingEnabled = true;
-            comboStatus.Location = new Point(204, 243);
+            comboStatus.Location = new Point(204, 228);
             comboStatus.Name = "comboStatus";
             comboStatus.Size = new Size(246, 28);
             comboStatus.TabIndex = 45;
@@ -179,7 +181,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(60, 246);
+            label3.Location = new Point(60, 228);
             label3.Name = "label3";
             label3.Size = new Size(69, 20);
             label3.TabIndex = 44;
@@ -189,7 +191,7 @@
             // 
             comboPriority.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboPriority.FormattingEnabled = true;
-            comboPriority.Location = new Point(204, 290);
+            comboPriority.Location = new Point(204, 262);
             comboPriority.Name = "comboPriority";
             comboPriority.Size = new Size(246, 28);
             comboPriority.TabIndex = 47;
@@ -198,7 +200,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(60, 293);
+            label4.Location = new Point(60, 262);
             label4.Name = "label4";
             label4.Size = new Size(105, 20);
             label4.TabIndex = 46;
@@ -208,7 +210,7 @@
             // 
             comboMaster.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboMaster.FormattingEnabled = true;
-            comboMaster.Location = new Point(204, 336);
+            comboMaster.Location = new Point(204, 483);
             comboMaster.Name = "comboMaster";
             comboMaster.Size = new Size(246, 28);
             comboMaster.TabIndex = 49;
@@ -218,7 +220,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(60, 339);
+            label5.Location = new Point(60, 486);
             label5.Name = "label5";
             label5.Size = new Size(139, 20);
             label5.TabIndex = 48;
@@ -228,7 +230,7 @@
             // 
             comboClient.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboClient.FormattingEnabled = true;
-            comboClient.Location = new Point(204, 380);
+            comboClient.Location = new Point(204, 296);
             comboClient.Name = "comboClient";
             comboClient.Size = new Size(246, 28);
             comboClient.TabIndex = 51;
@@ -238,17 +240,38 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(60, 383);
+            label7.Location = new Point(60, 296);
             label7.Name = "label7";
             label7.Size = new Size(73, 20);
             label7.TabIndex = 50;
             label7.Text = "Клиент*";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(60, 518);
+            label8.Name = "label8";
+            label8.Size = new Size(114, 40);
+            label8.TabIndex = 52;
+            label8.Text = "Дата \r\nвыполнения*";
+            // 
+            // dateTimePicker
+            // 
+            dateTimePicker.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker.Location = new Point(204, 526);
+            dateTimePicker.MinDate = new DateTime(2024, 3, 19, 0, 0, 0, 0);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(246, 32);
+            dateTimePicker.TabIndex = 53;
+            // 
             // EditOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 651);
+            ClientSize = new Size(518, 671);
+            Controls.Add(dateTimePicker);
+            Controls.Add(label8);
             Controls.Add(comboClient);
             Controls.Add(label7);
             Controls.Add(comboMaster);
@@ -269,8 +292,8 @@
             Controls.Add(labelEquip);
             Controls.Add(textBoxEquip);
             Controls.Add(buttonEdit);
-            MaximumSize = new Size(534, 690);
-            MinimumSize = new Size(534, 690);
+            MaximumSize = new Size(534, 710);
+            MinimumSize = new Size(534, 710);
             Name = "EditOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Редактировать заказ";
@@ -301,5 +324,7 @@
         private Label label5;
         private ComboBox comboClient;
         private Label label7;
+        private Label label8;
+        private DateTimePicker dateTimePicker;
     }
 }

@@ -105,6 +105,7 @@ namespace LLC_TechService.Forms
                     editOrder.StatusOrder = ((Status)comboStatus.SelectedItem).IdStatus;
                     editOrder.PriorityOrder = ((Priority)comboPriority.SelectedItem).IdPriority;
                     editOrder.MasterOrder = ((User)comboMaster.SelectedItem).IdUser;
+                    editOrder.DoneDateOrder = dateTimePicker.Value;
 
                     db.Orders.Update(editOrder);
 

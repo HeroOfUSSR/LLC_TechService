@@ -15,8 +15,6 @@ namespace LLC_TechService_Context.Models
         public DateTime DateReport { get; set; }
         public decimal CostReport { get; set; }
         public int MalfunctionReport { get; set; }
-        public int PartReport { get; set; }
-        public int PartAmountReport { get; set; }
         public string? DescReport { get; set; }
         public int MasterReport { get; set; }
 

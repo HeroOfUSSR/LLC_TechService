@@ -37,6 +37,7 @@
             buttonEdit = new Button();
             labelDesc = new Label();
             labelProblem = new Label();
+            buttonDone = new Button();
             SuspendLayout();
             // 
             // labelID
@@ -131,11 +132,23 @@
             labelProblem.TabIndex = 10;
             labelProblem.Text = "Поломка";
             // 
+            // buttonDone
+            // 
+            buttonDone.Font = new Font("Lucida Sans Unicode", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDone.Location = new Point(441, 197);
+            buttonDone.Name = "buttonDone";
+            buttonDone.Size = new Size(275, 32);
+            buttonDone.TabIndex = 11;
+            buttonDone.Text = "Завершить заказ";
+            buttonDone.UseVisualStyleBackColor = true;
+            buttonDone.Click += buttonDone_Click;
+            // 
             // OrderView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(buttonDone);
             Controls.Add(labelProblem);
             Controls.Add(labelDesc);
             Controls.Add(buttonEdit);
@@ -162,5 +175,6 @@
         private Button buttonEdit;
         private Label labelDesc;
         private Label labelProblem;
+        private Button buttonDone;
     }
 }

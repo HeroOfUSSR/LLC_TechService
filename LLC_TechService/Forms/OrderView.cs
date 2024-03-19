@@ -27,8 +27,8 @@ namespace LLC_TechService.Forms
         private readonly Status viewStatus;
         private readonly Priority viewPriority;
 
-        public OrderView(Order order, Status status, 
-            Priority priority, Equipment equipment, 
+        public OrderView(Order order, Status status,
+            Priority priority, Equipment equipment,
             User client, User master, Malfunction malfunction)
         {
             InitializeComponent();
@@ -45,8 +45,8 @@ namespace LLC_TechService.Forms
         }
 
 
-        private void Init_View(Order order, Status status, 
-            Priority priority, Equipment equipment, 
+        private void Init_View(Order order, Status status,
+            Priority priority, Equipment equipment,
             User client, User master, Malfunction malfunction)
         {
             using (var db = new LLCTechServiceContext())
@@ -79,6 +79,12 @@ namespace LLC_TechService.Forms
             var editOrder = new EditOrder(viewOrder, viewStatus, viewPriority,
                 viewEquip, viewClient, viewMaster, viewMalfunction);
             editOrder.ShowDialog();
+        }
+
+        private void buttonDone_Click(object sender, EventArgs e)
+        {
+            var createReport = new CreateReport(viewOrder);
+            createReport.ShowDialog();
         }
     }
 }

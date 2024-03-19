@@ -18,6 +18,7 @@ namespace LLC_TechService_Context.Models
         public int StatusOrder { get; set; }
         public int PriorityOrder { get; set; }
         public DateTime DateOrder { get; set; }
+        public DateTime? DoneDateOrder { get; set; }
         public int? MasterOrder { get; set; }
 
         public virtual User ClientOrderNavigation { get; set; } = null!;

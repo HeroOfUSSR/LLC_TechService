@@ -107,6 +107,10 @@ namespace LLC_TechService_Context
                     .HasColumnType("datetime")
                     .HasColumnName("Date_Order");
 
+                entity.Property(e => e.DoneDateOrder)
+                    .HasColumnType("datetime")
+                    .HasColumnName("DoneDate_Order");
+
                 entity.Property(e => e.DescOrder)
                     .HasMaxLength(100)
                     .HasColumnName("Desc_Order");
@@ -217,9 +221,6 @@ namespace LLC_TechService_Context
 
                 entity.Property(e => e.OrderReport).HasColumnName("Order_Report");
 
-                entity.Property(e => e.PartAmountReport).HasColumnName("PartAmount_Report");
-
-                entity.Property(e => e.PartReport).HasColumnName("Part_Report");
 
                 entity.HasOne(d => d.MalfunctionReportNavigation)
                     .WithMany(p => p.Reports)
